@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RestApiAts.API
+namespace RestApiAts.Api
 {
     public class WeatherForecast
     {

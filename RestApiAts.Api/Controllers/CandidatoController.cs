@@ -4,7 +4,7 @@ using RestApiAts.Application.Interface;
 using System;
 using System.Collections.Generic;
 
-namespace RestApiAts.API.Controllers
+namespace RestApiAts.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]

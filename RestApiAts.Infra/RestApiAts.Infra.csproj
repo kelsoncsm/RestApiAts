@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -19,10 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RESTAPIATS.Application\RestApiAts.Application.csproj" />
-    <ProjectReference Include="..\RESTAPIATS.Domain.Core\RestApiAts.Domain.Core.csproj" />
-    <ProjectReference Include="..\RESTAPIATS.Domain.Services\RestApiAts.Domain.Services.csproj" />
-    <ProjectReference Include="..\RESTAPIATS.Domain\RestApiAts.Domain.csproj" />
+    <ProjectReference Include="..\RestApiAts.Application\RestApiAts.Application.csproj" />
+    <ProjectReference Include="..\RestApiAts.Domain.Core\RestApiAts.Domain.Core.csproj" />
+    <ProjectReference Include="..\RestApiAts.Domain.Services\RestApiAts.Domain.Services.csproj" />
+    <ProjectReference Include="..\RestApiAts.Domain\RestApiAts.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

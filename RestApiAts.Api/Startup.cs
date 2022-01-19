@@ -10,7 +10,7 @@ using Microsoft.OpenApi.Models;
 using RestApiAts.Infra.CrossCutting.IOC;
 using RestApiAts.Infra.Data;
 
-namespace RestApiAts.API
+namespace RestApiAts.Api
 {
     public class Startup
     {
@@ -52,6 +52,8 @@ namespace RestApiAts.API
 
             app.UseSwaggerUI(c =>
             {
+
+                c.RoutePrefix = "swagger";
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Ats");
             });
 
