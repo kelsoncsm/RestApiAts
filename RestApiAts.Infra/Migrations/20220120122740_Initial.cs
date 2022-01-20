@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RestApiAts.Infra.Migrations
 {
-    public partial class Inital : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-         
-
             migrationBuilder.CreateTable(
                 name: "Candidatos",
                 columns: table => new
@@ -19,6 +17,8 @@ namespace RestApiAts.Infra.Migrations
                     SobreNome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Cpf = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Objetivo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataNascimento = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsAtivo = table.Column<bool>(type: "bit", nullable: false)

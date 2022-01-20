@@ -34,6 +34,18 @@ namespace RestApiAts.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Ats", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                  "mycors",
+                  builder => builder.WithOrigins("http://localhost:4200")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials());
+            });
+
+          
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -44,6 +56,9 @@ namespace RestApiAts.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+           
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -56,6 +71,9 @@ namespace RestApiAts.Api
                 c.RoutePrefix = "swagger";
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Ats");
             });
+
+
+            app.UseCors("mycors");
 
             app.UseHttpsRedirection();
 

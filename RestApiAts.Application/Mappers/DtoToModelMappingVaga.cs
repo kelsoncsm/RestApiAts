@@ -24,7 +24,7 @@ namespace RestApiAts.Application.Mappers
                .ForMember(vag => vag.Requisitos, opt => opt.MapFrom(x => x.Requisitos))
                .ForMember(vag => vag.DataInicio, opt => opt.MapFrom(x => x.DataInicio))
                .ForMember(vag => vag.DataFim, opt => opt.MapFrom(x => x.DataFim))
-               .ForMember(vag => vag.IsAtivo, opt => opt.Ignore());
+               .ForMember(vag => vag.IsAtivo, opt => opt.MapFrom(x => x.IsAtivo));
         }
     }
 }

@@ -8,6 +8,5 @@ namespace RestApiAts.Domain.Entity
     {
         public int Id { get; set; }
         public bool IsAtivo { get; set; }
-
     }
 }

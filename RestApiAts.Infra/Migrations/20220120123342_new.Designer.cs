@@ -10,8 +10,8 @@ using RestApiAts.Infra.Data;
 namespace RestApiAts.Infra.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20220119194903_Inital")]
-    partial class Inital
+    [Migration("20220120123342_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace RestApiAts.Infra.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Cpf")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
 
@@ -41,6 +44,9 @@ namespace RestApiAts.Infra.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Objetivo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SobreNome")
