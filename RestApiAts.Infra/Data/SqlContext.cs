@@ -23,6 +23,10 @@ namespace RestApiAts.Infra.Data
         public DbSet<Vaga> Vagas { get; set; }
 
 
+        public DbSet<Candidatura> Candidaturas { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Password=MudarSenha123;Initial Catalog=Ats;Persist Security Info=True;User ID=sa;Data Source=localhost,1433");

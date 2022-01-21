@@ -8,22 +8,25 @@ using System.Text;
 
 namespace RestApiAts.Infra.Data.Repositorys
 {
-    class RepositoryCandidato : RepositoryBase<Candidato>, IRepositoryCandidato
+    class RepositoryCandidatura : RepositoryBase<Candidatura>, IRepositoryCandidatura
     {
         private readonly SqlContext sqlContext;
 
-        public RepositoryCandidato(SqlContext sqlContext)
+        public RepositoryCandidatura(SqlContext sqlContext)
             : base(sqlContext)
         {
             this.sqlContext = sqlContext;
         }
 
-  
-        //public IEnumerable<Candidatura> GetCandidaturaAll()
-        //{
-        //    IQueryable<Candidatura> query = sqlContext.Candidaturas;
 
-        //    query = query.Include(p => p.Candidato);
+
+
+
+
+
+        //IQueryable<Candidatura> query = sqlContext.Candidaturas;
+
+        //query = query.Include(p => p.Candidato);
 
         //    query = query.AsNoTracking()
         //        .OrderBy(p => p.Id)
@@ -31,14 +34,6 @@ namespace RestApiAts.Infra.Data.Repositorys
         //    //return sqlContext.Set<Candidatura>().ToList();
 
         //    return query.ToList();
-        //}
-
-        //public Candidatura GetCandidaturaById(int id)
-        //{
-        //    return sqlContext.Set<Candidatura>().Find(id);
-        //}
-
-
 
 
 

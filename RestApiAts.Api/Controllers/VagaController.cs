@@ -18,7 +18,7 @@ namespace RestApiAts.Api.Controllers
         {
             this.applicationServiceVaga = applicationServiceVaga;
         }
-        // GET api/values                                   
+        // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -34,15 +34,15 @@ namespace RestApiAts.Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] VagaDto vagaDto)
+        public JsonResult Post([FromBody] VagaDto vagaDto)
         {
             try
             {
                 if (vagaDto == null)
-                    return NotFound();
+                    return new JsonResult("Entidade nula");
 
                 applicationServiceVaga.Add(vagaDto);
-                return Ok("Candidato Cadastrado com sucesso!");
+                return new JsonResult("Vaga Cadastrado com sucesso!");
             }
             catch (Exception ex)
             {
@@ -53,17 +53,20 @@ namespace RestApiAts.Api.Controllers
 
         }
 
+
+
         // PUT api/values/5
         [HttpPut]
-        public ActionResult Put([FromBody] VagaDto vagaDto)
+        public JsonResult Put([FromBody] VagaDto vagaDto)
         {
             try
             {
                 if (vagaDto == null)
-                    return NotFound();
+                    return new JsonResult("Entidade nula");
+
 
                 applicationServiceVaga.Update(vagaDto);
-                return Ok("Candidato Atualizado com sucesso!");
+                return new JsonResult("Vaga Atualizado com sucesso!");
             }
             catch (Exception)
             {
@@ -73,16 +76,17 @@ namespace RestApiAts.Api.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete()]
-        public ActionResult Delete([FromBody] VagaDto vagaDto)
+        [HttpPost()]
+        [Route("Delete")]
+        public JsonResult Delete([FromBody] VagaDto vagaDto)
         {
             try
             {
                 if (vagaDto == null)
-                    return NotFound();
+                    return new JsonResult("Entidade nula");
 
                 applicationServiceVaga.Remove(vagaDto);
-                return Ok("Candidato Removido com sucesso!");
+                return new JsonResult("Vaga Removido com sucesso!");
             }
             catch (Exception ex)
             {

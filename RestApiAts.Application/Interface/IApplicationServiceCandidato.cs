@@ -17,5 +17,8 @@ namespace RestApiAts.Application.Interface
         IEnumerable<CandidatoDto> GetAll();
 
         CandidatoDto GetById(int id);
+
+
+
     }
 }

@@ -16,6 +16,7 @@ namespace RestApiAts.Domain.Entity
         public string DataNascimento { get; set; }
         public DateTime DataCadastro { get; set; }
 
-       
+
+
     }
 }

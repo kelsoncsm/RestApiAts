@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestApiAts.Infra.Data;
 
 namespace RestApiAts.Infra.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    partial class SqlContextModelSnapshot : ModelSnapshot
+    [Migration("20220121182713_atualidades")]
+    partial class atualidades
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +39,9 @@ namespace RestApiAts.Infra.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdCandidatura")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
                         .HasColumnType("bit");
@@ -66,6 +71,12 @@ namespace RestApiAts.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("CandidatoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCandidato")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdVaga")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
@@ -98,6 +109,9 @@ namespace RestApiAts.Infra.Migrations
 
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdCandidatura")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
                         .HasColumnType("bit");
