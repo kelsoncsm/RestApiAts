@@ -26,6 +26,9 @@ namespace RestApiAts.Infra.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Cpf")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
 
@@ -41,6 +44,9 @@ namespace RestApiAts.Infra.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Objetivo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SobreNome")
                         .HasColumnType("nvarchar(max)");
 
@@ -50,6 +56,31 @@ namespace RestApiAts.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Candidatos");
+                });
+
+            modelBuilder.Entity("RestApiAts.Domain.Entity.Candidatura", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CandidatoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsAtivo")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("VagaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidatoId");
+
+                    b.HasIndex("VagaId");
+
+                    b.ToTable("Candidaturas");
                 });
 
             modelBuilder.Entity("RestApiAts.Domain.Entity.Vaga", b =>
@@ -77,6 +108,21 @@ namespace RestApiAts.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vagas");
+                });
+
+            modelBuilder.Entity("RestApiAts.Domain.Entity.Candidatura", b =>
+                {
+                    b.HasOne("RestApiAts.Domain.Entity.Candidato", "Candidato")
+                        .WithMany()
+                        .HasForeignKey("CandidatoId");
+
+                    b.HasOne("RestApiAts.Domain.Entity.Vaga", "Vaga")
+                        .WithMany()
+                        .HasForeignKey("VagaId");
+
+                    b.Navigation("Candidato");
+
+                    b.Navigation("Vaga");
                 });
 #pragma warning restore 612, 618
         }

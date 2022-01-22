@@ -23,7 +23,8 @@ namespace RestApiAts.Application.Mappers
                 .ForMember(can => can.Descricao, opt => opt.MapFrom(x => x.Descricao))
                 .ForMember(can => can.DataInicio, opt => opt.MapFrom(x => x.DataInicio))
                 .ForMember(can => can.DataFim, opt => opt.MapFrom(x => x.DataFim))
-                .ForMember(can => can.Requisitos, opt => opt.MapFrom(x => x.Requisitos));
+                .ForMember(can => can.Requisitos, opt => opt.MapFrom(x => x.Requisitos))
+                .ForMember(can => can.IsAtivo, opt => opt.MapFrom(x => x.IsAtivo));
         }
     }
 }

@@ -41,6 +41,7 @@ namespace RestApiAts.Application
             return candidatoDto;
         }
 
+
         public void Remove(CandidatoDto candidatoDto)
         {
             var cliente = mapper.Map<Candidato>(candidatoDto);

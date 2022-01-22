@@ -5,10 +5,10 @@ using System.Text;
 
 namespace RestApiAts.Domain.Core.Interfaces.Services
 {
-    public interface IServiceCandidato : IServiceBase<Candidato>
+    public interface IServiceCandidatura : IServiceBase<Candidatura>
     {
 
-
+        IEnumerable<Candidatura> GetAll2();
 
     }
 

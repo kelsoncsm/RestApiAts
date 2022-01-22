@@ -5,9 +5,14 @@ using System.Text;
 
 namespace RestApiAts.Domain.Core.Interfaces.Repositorys
 {
-   public interface IRepositoryCandidato : IRepositoryBase<Candidato>
+   public interface IRepositoryCandidatura : IRepositoryBase<Candidatura>
     {
-    
+
+
+
+        IEnumerable<Candidatura> GetAll2();
+
+        
 
 
     }

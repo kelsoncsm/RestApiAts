@@ -10,6 +10,5 @@ namespace RestApiAts.Domain.Entity
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
         public string Requisitos { get; set; }
-
     }
 }

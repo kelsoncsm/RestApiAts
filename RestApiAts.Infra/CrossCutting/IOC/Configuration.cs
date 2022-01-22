@@ -21,18 +21,25 @@ namespace RestApiAts.Infra.CrossCutting.IOC
 
             builder.RegisterType<ApplicationServiceCandidato>().As<IApplicationServiceCandidato>();
             builder.RegisterType<ApplicationServiceVaga>().As<IApplicationServiceVaga>();
+            builder.RegisterType<ApplicationServiceCandidatura>().As<IApplicationServiceCandidatura>();
+
+            
 
             builder.RegisterType<ServiceCandidato>().As<IServiceCandidato>();
             builder.RegisterType<ServiceVaga>().As<IServiceVaga>();
+            builder.RegisterType<ServiceCandidatura>().As<IServiceCandidatura>();
 
             builder.RegisterType<RepositoryCandidato>().As<IRepositoryCandidato>();
             builder.RegisterType<RepositoryVaga>().As<IRepositoryVaga>();
+            builder.RegisterType<RepositoryCandidatura>().As<IRepositoryCandidatura>();
             builder.Register(ctx => new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DtoToModelMappingCandidato());
                 cfg.AddProfile(new ModelToDtoMappingCandidato());
                 cfg.AddProfile(new DtoToModelMappingVaga());
                 cfg.AddProfile(new ModelToDtoMappingVaga());
+                cfg.AddProfile(new DtoToModelMappingCandidatura());
+                cfg.AddProfile(new ModelToDtoMappingCandidatura());
 
 
             }));

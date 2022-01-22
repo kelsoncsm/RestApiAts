@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using RestApiAts.Application.Dtos;
 using RestApiAts.Application.Interface;
 using System;
 using System.Collections.Generic;
 
-namespace RestApiAts.API.Controllers
+namespace RestApiAts.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -20,7 +21,7 @@ namespace RestApiAts.API.Controllers
         }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<string>> Get( int page= 1,int pageSize = 10)
         {
             return Ok(applicationServiceCandidato.GetAll());
         }
@@ -34,15 +35,15 @@ namespace RestApiAts.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] CandidatoDto candidatoDto)
+        public JsonResult Post([FromBody] CandidatoDto candidatoDto)
         {
             try
             {
                 if (candidatoDto == null)
-                    return NotFound();
+                    return new JsonResult("Entidade nula");
 
                 applicationServiceCandidato.Add(candidatoDto);
-                return Ok("Candidato Cadastrado com sucesso!");
+                return new JsonResult("Candidato Cadastrado com sucesso!");
             }
             catch (Exception ex)
             {
@@ -53,17 +54,20 @@ namespace RestApiAts.API.Controllers
 
         }
 
+
+
         // PUT api/values/5
         [HttpPut]
-        public ActionResult Put([FromBody] CandidatoDto candidatoDto)
+        public JsonResult Put([FromBody] CandidatoDto candidatoDto)
         {
             try
             {
                 if (candidatoDto == null)
-                    return NotFound();
+                    return  new JsonResult("Entidade nula");
+
 
                 applicationServiceCandidato.Update(candidatoDto);
-                return Ok("Candidato Atualizado com sucesso!");
+                return new JsonResult("Candidato Atualizado com sucesso!");
             }
             catch (Exception)
             {
@@ -73,16 +77,17 @@ namespace RestApiAts.API.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete()]
-        public ActionResult Delete([FromBody] CandidatoDto candidatoDto)
+        [HttpPost()]
+        [Route("Delete")]
+        public JsonResult Delete([FromBody] CandidatoDto candidatoDto)
         {
             try
             {
                 if (candidatoDto == null)
-                    return NotFound();
+                    return new JsonResult("Entidade nula");
 
                 applicationServiceCandidato.Remove(candidatoDto);
-                return Ok("Candidato Removido com sucesso!");
+                return new JsonResult("Candidato Removido com sucesso!");
             }
             catch (Exception ex)
             {
