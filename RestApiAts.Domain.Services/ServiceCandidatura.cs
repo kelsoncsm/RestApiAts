@@ -18,6 +18,12 @@ namespace RestApiAts.Domain.Services
         }
 
 
+        public IEnumerable<Candidatura> GetAll2()
+        {
+            return repositoryCandidatura.GetAll2();
+        }
+
+
 
     }
 }

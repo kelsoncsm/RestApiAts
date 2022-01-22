@@ -8,7 +8,7 @@ namespace RestApiAts.Domain.Core.Interfaces.Services
     public interface IServiceCandidatura : IServiceBase<Candidatura>
     {
 
-
+        IEnumerable<Candidatura> GetAll2();
 
     }
 

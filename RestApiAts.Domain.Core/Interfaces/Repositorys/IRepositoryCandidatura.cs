@@ -7,9 +7,12 @@ namespace RestApiAts.Domain.Core.Interfaces.Repositorys
 {
    public interface IRepositoryCandidatura : IRepositoryBase<Candidatura>
     {
-    
 
 
+
+        IEnumerable<Candidatura> GetAll2();
+
+        
 
 
     }

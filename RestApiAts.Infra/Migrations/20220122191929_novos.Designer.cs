@@ -10,8 +10,8 @@ using RestApiAts.Infra.Data;
 namespace RestApiAts.Infra.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20220121182713_atualidades")]
-    partial class atualidades
+    [Migration("20220122191929_novos")]
+    partial class novos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,9 +39,6 @@ namespace RestApiAts.Infra.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IdCandidatura")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
                         .HasColumnType("bit");
@@ -71,12 +68,6 @@ namespace RestApiAts.Infra.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("CandidatoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCandidato")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdVaga")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
@@ -109,9 +100,6 @@ namespace RestApiAts.Infra.Migrations
 
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IdCandidatura")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsAtivo")
                         .HasColumnType("bit");

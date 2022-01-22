@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RestApiAts.Infra.Migrations
 {
-    public partial class Initial : Migration
+    public partial class novos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,10 +44,50 @@ namespace RestApiAts.Infra.Migrations
                 {
                     table.PrimaryKey("PK_Vagas", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Candidaturas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CandidatoId = table.Column<int>(type: "int", nullable: true),
+                    VagaId = table.Column<int>(type: "int", nullable: true),
+                    IsAtivo = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Candidaturas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Candidaturas_Candidatos_CandidatoId",
+                        column: x => x.CandidatoId,
+                        principalTable: "Candidatos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Candidaturas_Vagas_VagaId",
+                        column: x => x.VagaId,
+                        principalTable: "Vagas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Candidaturas_CandidatoId",
+                table: "Candidaturas",
+                column: "CandidatoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Candidaturas_VagaId",
+                table: "Candidaturas",
+                column: "VagaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Candidaturas");
+
             migrationBuilder.DropTable(
                 name: "Candidatos");
 

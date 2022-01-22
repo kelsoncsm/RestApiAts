@@ -20,20 +20,47 @@ namespace RestApiAts.Infra.Data.Repositorys
 
 
 
+        public IEnumerable<Candidatura> GetAll2()
+
+        {
+
+
+            IQueryable<Candidatura> query = sqlContext.Candidaturas
+                .Include(h => h.Candidato)
+                .Include(h => h.Vaga);
 
 
 
 
-        //IQueryable<Candidatura> query = sqlContext.Candidaturas;
+            //var innerJoin = from c in sqlContext.Candidaturas
+            //                join ca in sqlContext.Candidatos on c.IdCandidato equals ca.Id
+            //                join va in sqlContext.Vagas on c.IdVaga equals va.Id
+            //                select new 
+            //                {
+            //                    Descricao = va.Descricao,
+            //                    Nome = String.Format("{0} {1}", ca.Nome, ca.SobreNome),
+            //                    DataInicio = va.DataInicio,
+            //                    DataFim = va.DataFim
+            //                };
 
-        //query = query.Include(p => p.Candidato);
 
-        //    query = query.AsNoTracking()
-        //        .OrderBy(p => p.Id)
-        //        .Where(p => p.Candidato.Id == p.Id);
-        //    //return sqlContext.Set<Candidatura>().ToList();
+        //    return db.TimelineItems.Where(tl => tl.ProductID == SelectedPID)
+        //.Select(tl => new TimelineItem
+        //{
+        //    Description = tl.Description,
+        //    Title = tl.Title
+        //})
 
-        //    return query.ToList();
+
+            return query.ToList();
+        }
+
+
+
+
+
+
+
 
 
 

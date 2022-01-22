@@ -22,7 +22,7 @@ namespace RestApiAts.Application
  
         public IEnumerable<CandidaturaDto> GetAll()
         {
-            var candidatos = serviceCandidatura.GetAll();
+            var candidatos = serviceCandidatura.GetAll2();
             var candidatosDto = mapper.Map<IEnumerable<CandidaturaDto>>(candidatos);
 
             return candidatosDto;

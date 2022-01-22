@@ -6,6 +6,7 @@ namespace RestApiAts.Domain.Entity
 {
     public class Candidatura : Base
     {
+       
         public Candidato Candidato { get; set; }
         public Vaga Vaga { get; set; }
 
