@@ -7,6 +7,8 @@ namespace RestApiAts.Domain.Core.Interfaces.Services
 {
    public interface IServiceVaga : IServiceBase<Vaga>
     {
+
+
     }
 
 }

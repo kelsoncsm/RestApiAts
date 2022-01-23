@@ -11,6 +11,11 @@ namespace RestApiAts.Application.Interface
 
         CandidaturaDto GetById(int id);
 
+        IEnumerable<CandidaturaDto> GetListaVagasAtivas(int id);
+
+        void Update(CandidaturaDto candidaturaDto);
+
+
 
     }
 }

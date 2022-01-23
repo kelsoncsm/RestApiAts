@@ -19,7 +19,7 @@ namespace RestApiAts.Application
             this.serviceCandidatura = serviceCandidatura;
             this.mapper = mapper;
         }
- 
+
         public IEnumerable<CandidaturaDto> GetAll()
         {
             var candidatos = serviceCandidatura.GetAll2();
@@ -35,6 +35,23 @@ namespace RestApiAts.Application
 
             return candidatoDto;
         }
+
+
+        public IEnumerable<CandidaturaDto> GetListaVagasAtivas(int idCandidato)
+        {
+            var candidatos = serviceCandidatura.GetListaVagasAtivas(idCandidato);
+            var candidatosDto = mapper.Map<IEnumerable<CandidaturaDto>>(candidatos);
+
+            return candidatosDto;
+        }
+
+
+        public void Update(CandidaturaDto candidaturaDto)
+        {
+            var cliente = mapper.Map<Candidatura>(candidaturaDto);
+            serviceCandidatura.Update(cliente);
+        }
+
 
     }
 }

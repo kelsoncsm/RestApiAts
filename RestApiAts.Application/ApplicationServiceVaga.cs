@@ -52,5 +52,6 @@ namespace RestApiAts.Application
             var produto = mapper.Map<Vaga>(produtoDto);
             serviceVaga.Update(produto);
         }
+
     }
 }

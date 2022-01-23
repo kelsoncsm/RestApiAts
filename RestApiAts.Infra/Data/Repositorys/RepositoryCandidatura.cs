@@ -27,32 +27,26 @@ namespace RestApiAts.Infra.Data.Repositorys
 
             IQueryable<Candidatura> query = sqlContext.Candidaturas
                 .Include(h => h.Candidato)
-                .Include(h => h.Vaga);
+                .Include(h => h.Vaga).Where(x=>x.IsAtivo == true);
 
-
-
-
-            //var innerJoin = from c in sqlContext.Candidaturas
-            //                join ca in sqlContext.Candidatos on c.IdCandidato equals ca.Id
-            //                join va in sqlContext.Vagas on c.IdVaga equals va.Id
-            //                select new 
-            //                {
-            //                    Descricao = va.Descricao,
-            //                    Nome = String.Format("{0} {1}", ca.Nome, ca.SobreNome),
-            //                    DataInicio = va.DataInicio,
-            //                    DataFim = va.DataFim
-            //                };
-
-
-        //    return db.TimelineItems.Where(tl => tl.ProductID == SelectedPID)
-        //.Select(tl => new TimelineItem
-        //{
-        //    Description = tl.Description,
-        //    Title = tl.Title
-        //})
 
 
             return query.ToList();
+        }
+
+
+        public IEnumerable<Candidatura> GetListaVagasAtivas(int idCandidato)
+
+        {
+
+
+            IQueryable<Candidatura> query = sqlContext.Candidaturas
+                .Include(h => h.Candidato)
+                .Include(h => h.Vaga).Where(x => x.IsAtivo == true);
+
+
+            return query.Where(tl => tl.Candidato.Id == idCandidato);
+            
         }
 
 

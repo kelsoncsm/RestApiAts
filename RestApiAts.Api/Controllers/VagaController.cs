@@ -32,6 +32,7 @@ namespace RestApiAts.Api.Controllers
             return Ok(applicationServiceVaga.GetById(id));
         }
 
+
         // POST api/values
         [HttpPost]
         public JsonResult Post([FromBody] VagaDto vagaDto)

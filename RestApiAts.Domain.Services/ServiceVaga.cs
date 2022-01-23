@@ -16,5 +16,8 @@ namespace RestApiAts.Domain.Services
         {
             this.repositoryVaga = repositoryVaga;
         }
+
+
+   
     }
 }
