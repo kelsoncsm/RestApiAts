@@ -10,6 +10,8 @@ namespace RestApiAts.Domain.Core.Interfaces.Repositorys
 
 
 
-        
+        IEnumerable<Vaga> GetVagasNaoAssociadas(int idCandidato);
+
+
     }
 }

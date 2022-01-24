@@ -96,5 +96,16 @@ namespace RestApiAts.Api.Controllers
             }
 
         }
+
+
+        [HttpGet]
+        [Route("GetVagasNaoAssociadas/{idCandidato}")]
+        public ActionResult<IEnumerable<string>> GetVagasNaoAssociadas(int idCandidato)
+        {
+            return Ok(applicationServiceVaga.GetVagasNaoAssociadas(idCandidato));
+        }
+
+
+        
     }
 }

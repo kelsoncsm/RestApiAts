@@ -18,6 +18,11 @@ namespace RestApiAts.Application.Dtos
         public bool IsAtivo { get; set; }
 
 
+        public int IdVaga { get; set; }
+        public int IdCandidato { get; set; }
+ 
+
+
 
     }
 }

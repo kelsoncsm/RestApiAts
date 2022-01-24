@@ -27,5 +27,7 @@ namespace RestApiAts.Domain.Services
         {
             return repositoryCandidatura.GetListaVagasAtivas(idCandidato);
         }
+
+     
     }
 }

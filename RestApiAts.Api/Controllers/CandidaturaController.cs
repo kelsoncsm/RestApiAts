@@ -63,5 +63,27 @@ namespace RestApiAts.API.Controllers
             }
         }
 
+
+        // POST api/values
+        [HttpPost]
+        public JsonResult Post([FromBody] CandidaturaDto candidaturaDto)
+        {
+            try
+            {
+                if (candidaturaDto == null)
+                    return new JsonResult("Entidade nula");
+
+                applicationServiceCandidatura.Add(candidaturaDto);
+                return new JsonResult("Candidato Cadastrado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
+
     }
 }

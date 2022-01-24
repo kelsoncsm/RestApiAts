@@ -9,6 +9,10 @@ namespace RestApiAts.Domain.Core.Interfaces.Services
     {
 
 
+
+
+        IEnumerable<Vaga> GetVagasNaoAssociadas(int idCandidato);
+
     }
 
 }

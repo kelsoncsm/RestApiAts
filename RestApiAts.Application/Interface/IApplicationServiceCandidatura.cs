@@ -16,6 +16,7 @@ namespace RestApiAts.Application.Interface
         void Update(CandidaturaDto candidaturaDto);
 
 
+        void Add(CandidaturaDto candidaturaDto);
 
     }
 }

@@ -38,22 +38,15 @@ namespace RestApiAts.Infra.Data.Repositorys
         public IEnumerable<Candidatura> GetListaVagasAtivas(int idCandidato)
 
         {
-
-
+        
             IQueryable<Candidatura> query = sqlContext.Candidaturas
                 .Include(h => h.Candidato)
-                .Include(h => h.Vaga).Where(x => x.IsAtivo == true);
+                .Include(h => h.Vaga).Where(x => x.IsAtivo == true && x.Candidato.Id == idCandidato) ;
 
 
-            return query.Where(tl => tl.Candidato.Id == idCandidato);
+            return query.ToList() ;
             
         }
-
-
-
-
-
-
 
 
 

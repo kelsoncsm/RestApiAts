@@ -18,6 +18,12 @@ namespace RestApiAts.Domain.Services
         }
 
 
-   
+
+        public IEnumerable<Vaga> GetVagasNaoAssociadas(int idCandidato)
+        {
+            return repositoryVaga.GetVagasNaoAssociadas(idCandidato);
+        }
+
+
     }
 }
