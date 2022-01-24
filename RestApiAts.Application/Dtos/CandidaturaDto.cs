@@ -12,6 +12,17 @@ namespace RestApiAts.Application.Dtos
         public string Descricao { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime DataFim { get; set; }
+         
+        public string Requisitos { get; set; }
+
+        public bool IsAtivo { get; set; }
+
+
+        public int IdVaga { get; set; }
+        public int IdCandidato { get; set; }
+ 
+
+
 
     }
 }

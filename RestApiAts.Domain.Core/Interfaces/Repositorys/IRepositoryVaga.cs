@@ -7,5 +7,11 @@ namespace RestApiAts.Domain.Core.Interfaces.Repositorys
 {
     public interface IRepositoryVaga : IRepositoryBase<Vaga>
     {
+
+
+
+        IEnumerable<Vaga> GetVagasNaoAssociadas(int idCandidato);
+
+
     }
 }

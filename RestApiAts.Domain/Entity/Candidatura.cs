@@ -10,6 +10,5 @@ namespace RestApiAts.Domain.Entity
         public Candidato Candidato { get; set; }
         public Vaga Vaga { get; set; }
 
-
     }
 }

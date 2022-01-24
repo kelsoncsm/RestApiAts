@@ -18,8 +18,10 @@ namespace RestApiAts.Application.Mappers
         {
 
             CreateMap<CandidaturaDto, Candidatura>()
-               .ForMember(cand => cand.Id, opt => opt.MapFrom(x => x.Id));
-            //.ForMember(cand => cand.Vaga, opt => opt.MapFrom(x => x.VagaDto));
+               .ForMember(cand => cand.Id, opt => opt.MapFrom(x => x.Id))
+               .ForPath(cand => cand.Candidato.Id, opt => opt.MapFrom(x => x.IdCandidato))
+               .ForPath(cand => cand.Vaga.Id, opt => opt.MapFrom(x => x.IdVaga))
+               .ForMember(cand => cand.IsAtivo, opt => opt.MapFrom(x => x.IsAtivo));
 
 
 

@@ -12,7 +12,7 @@ namespace RestApiAts.Domain.Core.Interfaces.Repositorys
 
         IEnumerable<Candidatura> GetAll2();
 
-        
+        IEnumerable<Candidatura> GetListaVagasAtivas(int idCandidato);
 
 
     }

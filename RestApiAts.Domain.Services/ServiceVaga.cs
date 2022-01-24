@@ -16,5 +16,14 @@ namespace RestApiAts.Domain.Services
         {
             this.repositoryVaga = repositoryVaga;
         }
+
+
+
+        public IEnumerable<Vaga> GetVagasNaoAssociadas(int idCandidato)
+        {
+            return repositoryVaga.GetVagasNaoAssociadas(idCandidato);
+        }
+
+
     }
 }

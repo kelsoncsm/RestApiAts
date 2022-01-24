@@ -32,6 +32,7 @@ namespace RestApiAts.Api.Controllers
             return Ok(applicationServiceVaga.GetById(id));
         }
 
+
         // POST api/values
         [HttpPost]
         public JsonResult Post([FromBody] VagaDto vagaDto)
@@ -95,5 +96,16 @@ namespace RestApiAts.Api.Controllers
             }
 
         }
+
+
+        [HttpGet]
+        [Route("GetVagasNaoAssociadas/{idCandidato}")]
+        public ActionResult<IEnumerable<string>> GetVagasNaoAssociadas(int idCandidato)
+        {
+            return Ok(applicationServiceVaga.GetVagasNaoAssociadas(idCandidato));
+        }
+
+
+        
     }
 }

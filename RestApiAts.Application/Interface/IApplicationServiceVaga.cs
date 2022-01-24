@@ -16,5 +16,10 @@ namespace RestApiAts.Application.Interface
         IEnumerable<VagaDto> GetAll();
 
         VagaDto GetById(int id);
+
+
+        IEnumerable<VagaDto> GetVagasNaoAssociadas(int id);
+
+        
     }
 }

@@ -10,6 +10,10 @@ namespace RestApiAts.Domain.Core.Interfaces.Services
 
         IEnumerable<Candidatura> GetAll2();
 
+
+        IEnumerable<Candidatura> GetListaVagasAtivas(int idCandidato);
+
+
     }
 
 }

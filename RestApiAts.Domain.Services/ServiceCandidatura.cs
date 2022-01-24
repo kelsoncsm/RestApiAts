@@ -23,7 +23,11 @@ namespace RestApiAts.Domain.Services
             return repositoryCandidatura.GetAll2();
         }
 
+        public IEnumerable<Candidatura> GetListaVagasAtivas(int idCandidato)
+        {
+            return repositoryCandidatura.GetListaVagasAtivas(idCandidato);
+        }
 
-
+     
     }
 }

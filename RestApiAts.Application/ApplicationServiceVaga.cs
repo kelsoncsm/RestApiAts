@@ -52,5 +52,14 @@ namespace RestApiAts.Application
             var produto = mapper.Map<Vaga>(produtoDto);
             serviceVaga.Update(produto);
         }
+
+
+        public IEnumerable<VagaDto> GetVagasNaoAssociadas(int idCandidato)
+        {
+            var vagas = serviceVaga.GetVagasNaoAssociadas(idCandidato);
+            var vagasDto = mapper.Map<IEnumerable<VagaDto>>(vagas);
+            return vagasDto;
+        }
+
     }
 }
